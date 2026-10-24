@@ -1,0 +1,18 @@
+# Copie para /etc/systemd/system/criar-vm.service (como root) e rode:
+#   systemctl daemon-reload && systemctl enable --now criar-vm
+[Unit]
+Description=Tenta criar a VM Always Free na Oracle ate ter vaga
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ocibot
+# Chamar via /bin/bash evita bloqueio do SELinux (AlmaLinux/Rocky) com scripts na pasta pessoal
+ExecStart=/bin/bash /home/ocibot/.oci/criar-vm.sh
+Restart=on-failure
+RestartSec=300
+Nice=10
+
+[Install]
+WantedBy=multi-user.target
