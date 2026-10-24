@@ -1,0 +1,10 @@
+zero compute-core quotas in tenancy
+set compute-core quota standard-a1-core-count to 2 in tenancy
+set compute-core quota standard-a1-core-regional-count to 2 in tenancy
+zero compute-memory quotas in tenancy
+set compute-memory quota standard-a1-memory-count to 12 in tenancy
+set compute-memory quota standard-a1-memory-regional-count to 12 in tenancy
+set block-storage quota total-storage-gb to 200 in tenancy
+set block-storage quota backup-count to 5 in tenancy
+zero load-balancer quotas in tenancy
+set object-storage quota storage-bytes to 21474836480 in tenancy
